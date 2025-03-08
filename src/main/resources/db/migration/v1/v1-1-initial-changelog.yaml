@@ -1,0 +1,139 @@
+databaseChangeLog:
+  - changeSet:
+      id: 1741439434021-1
+      author: Rafa (generated)
+      objectQuotingStrategy: QUOTE_ONLY_RESERVED_WORDS
+      changes:
+        - createSequence:
+            incrementBy: 50
+            sequenceName: plane_seq
+            startValue: 1
+  - changeSet:
+      id: 1741439434021-2
+      author: Rafa (generated)
+      objectQuotingStrategy: QUOTE_ONLY_RESERVED_WORDS
+      changes:
+        - createSequence:
+            incrementBy: 50
+            sequenceName: runway_seq
+            startValue: 1
+  - changeSet:
+      id: 1741439434021-3
+      author: Rafa (generated)
+      objectQuotingStrategy: QUOTE_ONLY_RESERVED_WORDS
+      changes:
+        - createSequence:
+            incrementBy: 50
+            sequenceName: terminal_seq
+            startValue: 1
+  - changeSet:
+      id: 1741439434021-4
+      author: Rafa (generated)
+      objectQuotingStrategy: QUOTE_ONLY_RESERVED_WORDS
+      changes:
+        - createTable:
+            columns:
+              - column:
+                  constraints:
+                    nullable: false
+                    primaryKey: true
+                    primaryKeyName: pk_plane
+                  name: id
+                  type: BIGINT
+              - column:
+                  name: name
+                  type: VARCHAR(255)
+              - column:
+                  name: seat_number
+                  type: INT
+              - column:
+                  name: wingspan
+                  type: INT
+              - column:
+                  name: length
+                  type: INT
+              - column:
+                  name: height
+                  type: INT
+              - column:
+                  name: weight
+                  type: INT
+              - column:
+                  name: max_speed
+                  type: INT
+              - column:
+                  name: takeoff_distance
+                  type: INT
+              - column:
+                  name: landing_distance
+                  type: INT
+              - column:
+                  name: noise_level
+                  type: INT
+              - column:
+                  name: navigation_type
+                  type: VARCHAR(255)
+            tableName: plane
+  - changeSet:
+      id: 1741439434021-5
+      author: Rafa (generated)
+      objectQuotingStrategy: QUOTE_ONLY_RESERVED_WORDS
+      changes:
+        - createTable:
+            columns:
+              - column:
+                  constraints:
+                    nullable: false
+                    primaryKey: true
+                    primaryKeyName: pk_runway
+                  name: id
+                  type: BIGINT
+              - column:
+                  name: length
+                  type: INT
+              - column:
+                  name: width
+                  type: INT
+              - column:
+                  name: weight_can_take
+                  type: INT
+              - column:
+                  name: terminal_entity_id
+                  type: BIGINT
+            tableName: runway
+  - changeSet:
+      id: 1741439434021-6
+      author: Rafa (generated)
+      objectQuotingStrategy: QUOTE_ONLY_RESERVED_WORDS
+      changes:
+        - createTable:
+            columns:
+              - column:
+                  constraints:
+                    nullable: false
+                    primaryKey: true
+                    primaryKeyName: pk_terminal
+                  name: id
+                  type: BIGINT
+              - column:
+                  name: navigation_types
+                  type: VARCHAR(255)
+              - column:
+                  name: max_hanger_height
+                  type: INT
+              - column:
+                  name: noise_level
+                  type: INT
+            tableName: terminal
+  - changeSet:
+      id: 1741439434021-7
+      author: Rafa (generated)
+      objectQuotingStrategy: QUOTE_ONLY_RESERVED_WORDS
+      changes:
+        - addForeignKeyConstraint:
+            baseColumnNames: terminal_entity_id
+            baseTableName: runway
+            constraintName: FK_RUNWAY_ON_TERMINAL_ENTITY
+            referencedColumnNames: id
+            referencedTableName: terminal
+
