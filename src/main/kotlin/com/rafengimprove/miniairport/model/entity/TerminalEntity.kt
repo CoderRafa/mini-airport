@@ -13,8 +13,10 @@ open class TerminalEntity {
     @Column(name = "id", nullable = false)
     open var id: Long? = null
 
+    @ElementCollection(targetClass = NavigationType::class)
+    @JoinTable(name = "tblNavigations", joinColumns = [JoinColumn(name = "navigationId")])
+    @Column(name = "navigation_types", nullable = false)
     @Enumerated(EnumType.STRING)
-    @Column(name = "navigation_types")
     open var navigationTypes: MutableSet<NavigationType> = mutableSetOf()
 
     @Column(name = "max_hanger_height")

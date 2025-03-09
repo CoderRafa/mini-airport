@@ -1,0 +1,53 @@
+databaseChangeLog:
+  - changeSet:
+      id: 1741513854096-1
+      author: k.iakimchuk (generated)
+      objectQuotingStrategy: QUOTE_ONLY_RESERVED_WORDS
+      changes:
+        - createTable:
+            columns:
+              - column:
+                  constraints:
+                    nullable: false
+                  name: navigation_id
+                  type: BIGINT
+              - column:
+                  constraints:
+                    nullable: false
+                  name: navigation_types
+                  type: VARCHAR(255)
+            tableName: tbl_navigations
+  - changeSet:
+      id: 1741513854096-2
+      author: k.iakimchuk (generated)
+      objectQuotingStrategy: QUOTE_ONLY_RESERVED_WORDS
+      changes:
+        - addForeignKeyConstraint:
+            baseColumnNames: navigation_id
+            baseTableName: tbl_navigations
+            constraintName: fk_tblnavigations_on_terminal_entity
+            referencedColumnNames: id
+            referencedTableName: terminal
+  - changeSet:
+      id: 1741513854096-3
+      author: k.iakimchuk (generated)
+      objectQuotingStrategy: QUOTE_ONLY_RESERVED_WORDS
+      changes:
+        - dropColumn:
+            columnName: navigation_types
+            tableName: terminal
+  - changeSet:
+      id: 1741513854096-4
+      author: k.iakimchuk (generated)
+      objectQuotingStrategy: QUOTE_ONLY_RESERVED_WORDS
+      changes:
+        - dropSequence:
+            sequenceName: plane_seq
+  - changeSet:
+      id: 1741513854096-5
+      author: k.iakimchuk (generated)
+      objectQuotingStrategy: QUOTE_ONLY_RESERVED_WORDS
+      changes:
+        - dropSequence:
+            sequenceName: runway_seq
+

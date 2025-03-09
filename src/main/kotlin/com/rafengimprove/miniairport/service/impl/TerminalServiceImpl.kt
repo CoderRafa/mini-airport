@@ -14,6 +14,7 @@ class TerminalServiceImpl(val terminalRepository: TerminalRepository): TerminalS
     }
 
     override fun deleteById(id: Long) {
+        terminalRepository.findById(id)
         return terminalRepository.deleteById(id)
     }
 }

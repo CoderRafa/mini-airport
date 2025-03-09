@@ -4,4 +4,6 @@
                    xsi:schemaLocation="http://www.liquibase.org/xml/ns/dbchangelog https://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-3.8.xsd"
                    objectQuotingStrategy="QUOTE_ONLY_RESERVED_WORDS">
     <include file="db/migration/v1/v1-1-initial-changelog.yaml"/>
+    <include file="db/migration/v1/v1-2-change-terminal-structure.yaml"/>
+    <include file="db/migration/v1/v1-3-add-all-what-we-need.yaml"/>
 </databaseChangeLog>
